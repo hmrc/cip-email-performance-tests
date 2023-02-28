@@ -14,18 +14,15 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.perftests.example
+package uk.gov.hmrc.perftests
 
 import uk.gov.hmrc.performance.simulation.PerformanceTestRunner
-import uk.gov.hmrc.perftests.example.ExampleRequests._
 
-class ExampleSimulation extends PerformanceTestRunner {
+class EmailVerificationSimulation extends PerformanceTestRunner {
 
-  setup("home-page", "Home Page") withRequests navigateToHomePage
-
-  setup("post-vat-return-period", "Post vat return period") withRequests postVatReturnPeriod
-
-  setup("get-turnover-page", "Get turnover page") withRequests getTurnoverPage
-
+  setup("valid-email-verification-api", "verify a valid email and use correct passcode")
+    .withRequests(
+      EmailVerifyPost.verifyValidEmail
+    )
   runSimulation()
 }
