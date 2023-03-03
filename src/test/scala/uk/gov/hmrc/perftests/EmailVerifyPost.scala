@@ -26,7 +26,7 @@ import uk.gov.hmrc.performance.conf.ServicesConfiguration
 import scala.util.Random
 
 object EmailVerifyPost extends ServicesConfiguration {
-  var baseUrl: String = baseUrlFor("cip-email-service")
+  var baseUrl: String = baseUrlFor("cip-email-verification")
   val emailRandomizer = Random.alphanumeric.take(4).mkString
   val email = s"$emailRandomizer@example.com"
   val payload =
